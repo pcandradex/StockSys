@@ -1,0 +1,651 @@
+/* ==========================================================
+   VARIÁVEIS GLOBAIS
+   ========================================================== */
+:root {
+    --bg-dark: #2b134b;
+    --bg-card: #2f2841;
+    --bg-input: #3a3253;
+    --bg-input-alt: #514869;
+    --accent: #00ff88;
+    --accent-hover: #00cc77;
+    --danger: #ff006e;
+    --danger-hover: #cc005c;
+    --text-light: #f0ffffde;
+    --text-white: #ffffff;
+    --menu-bg: #1f1533;
+    --radius: 10px;
+    --shadow: 0px 5px 40px rgba(0, 0, 0, 0.34);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-light);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+/* ==========================================================
+   TELA DE LOGIN / CADASTRO DE USUÁRIO
+   ========================================================== */
+body.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.main-login {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.left-login {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.left-login h1 {
+    color: var(--accent);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.left-login-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.right-login {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card-login,
+.card-cadastro {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.card-login h1,
+.card-cadastro h1 {
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.textfield {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.textfield label {
+    display: block;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.textfield input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: var(--bg-input);
+    color: var(--text-light);
+    border-radius: 8px;
+}
+
+.textfield input:focus {
+    outline: none;
+    box-shadow: 0px 0px 10px rgba(0, 255, 136, 0.8);
+}
+
+.btn-login,
+.btn-cadastro {
+    width: 100%;
+    padding: 12px 0px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--accent);
+    color: var(--bg-dark);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -12px rgba(0, 255, 136, 0.32);
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover,
+.btn-cadastro:hover {
+    background-color: var(--accent-hover);
+}
+
+.form-msg {
+    background-color: rgba(255, 0, 110, 0.15);
+    color: #ffb3d1;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.cadastro-link {
+    margin-top: 20px;
+    color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+    .main-login {
+        flex-direction: column;
+        text-align: center;
+    }
+    .left-login,
+    .right-login {
+        flex: none;
+    }
+    .card-login,
+    .card-cadastro {
+        margin-top: 20px;
+    }
+}
+
+/* ==========================================================
+   MENU / NAVEGAÇÃO INTERNA
+   ========================================================== */
+body.app-page {
+    padding-top: 60px;
+}
+
+.menu {
+    background-color: var(--menu-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.menu-links {
+    display: flex;
+    align-items: center;
+}
+
+.menu a {
+    color: var(--text-white);
+    text-align: center;
+    padding: 16px 18px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--accent);
+}
+
+.menu a.active {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+    font-weight: 700;
+}
+
+.logout-button {
+    margin: 0 12px;
+}
+
+.logout-button button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--danger);
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.logout-button button:hover {
+    background-color: var(--danger-hover);
+}
+
+/* ==========================================================
+   TÍTULOS / LAYOUT GERAL
+   ========================================================== */
+.page-title {
+    color: var(--accent);
+    margin: 24px 20px 20px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+
+.card-box {
+    background-color: var(--bg-card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+/* ==========================================================
+   FORMULÁRIOS (uso geral)
+   ========================================================== */
+form.styled-form {
+    background-color: var(--bg-card);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 24px;
+}
+
+label {
+    color: var(--text-light);
+    margin-bottom: 6px;
+    display: block;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="date"],
+input[type="file"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--bg-input-alt);
+    color: var(--text-light);
+    font-size: 14px;
+    box-shadow: var(--shadow);
+    outline: none;
+}
+
+input[type="submit"],
+.btn-primary {
+    width: 100%;
+    padding: 14px 0px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--accent);
+    color: var(--bg-dark);
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -12px rgba(0, 255, 136, 0.32);
+    transition: background-color 0.2s ease;
+}
+
+input[type="submit"]:hover,
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-voltar {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--accent);
+    text-align: center;
+}
+
+/* ==========================================================
+   GRID DE PRODUTOS
+   ========================================================== */
+.produto-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.produto {
+    width: 220px;
+    padding: 14px;
+    background-color: var(--bg-card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.produto img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.produto h2 {
+    font-size: 17px;
+    color: var(--text-light);
+    margin: 10px 0 4px;
+}
+
+.produto p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.produto .saldo-baixo {
+    color: #ff8080;
+    font-weight: 700;
+}
+
+.produto-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.produto-actions a,
+.produto-actions button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.btn-ajustar {
+    background-color: #3d8bfd;
+    color: white;
+}
+.btn-ajustar:hover {
+    background-color: #2f6fd6;
+}
+
+.btn-editar {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+}
+.btn-editar:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-excluir {
+    background-color: var(--danger);
+    color: white;
+}
+.btn-excluir:hover {
+    background-color: var(--danger-hover);
+}
+
+/* ==========================================================
+   TABELAS (histórico, relatório)
+   ========================================================== */
+table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--bg-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+table.data-table th,
+table.data-table td {
+    padding: 12px 14px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-light);
+}
+
+table.data-table th {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+table.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.badge-entrada {
+    background-color: rgba(0, 255, 136, 0.18);
+    color: var(--accent);
+}
+
+.badge-saida {
+    background-color: rgba(255, 0, 110, 0.18);
+    color: #ff6ba3;
+}
+
+.badge-ajuste {
+    background-color: rgba(61, 139, 253, 0.18);
+    color: #7bb0ff;
+}
+
+/* Filtros (histórico/relatório) */
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.filtros .campo {
+    min-width: 160px;
+}
+
+.filtros .campo label {
+    margin-bottom: 6px;
+}
+
+.filtros input,
+.filtros select {
+    margin-bottom: 0;
+}
+
+.filtros button {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--accent);
+    color: var(--bg-dark);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    cursor: pointer;
+    height: 44px;
+}
+
+.filtros button:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Resumo / cards do relatório */
+.resumo-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.resumo-card {
+    flex: 1;
+    min-width: 200px;
+    background-color: var(--bg-card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px 20px;
+}
+
+.resumo-card .valor {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.resumo-card .label {
+    font-size: 13px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-imprimir {
+    background-color: #3d8bfd;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.btn-imprimir:hover {
+    background-color: #2f6fd6;
+}
+
+/* ==========================================================
+   MODAL DE SUCESSO
+   ========================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    color: #222;
+    margin: 10% auto;
+    padding: 24px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 320px;
+    text-align: center;
+}
+
+.modal .close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal .close:hover {
+    color: black;
+}
+
+.modal-btn {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+/* ==========================================================
+   IMPRESSÃO (usado em relatorio.php)
+   ========================================================== */
+@media print {
+    .menu,
+    .filtros,
+    .btn-imprimir,
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        background: #fff !important;
+        color: #000 !important;
+        padding-top: 0 !important;
+    }
+
+    .resumo-card,
+    .card-box,
+    table.data-table {
+        background: #fff !important;
+        box-shadow: none !important;
+        color: #000 !important;
+    }
+
+    table.data-table th,
+    table.data-table td {
+        color: #000 !important;
+        border-bottom: 1px solid #ccc;
+    }
+
+    table.data-table th {
+        background: #eee !important;
+    }
+}
