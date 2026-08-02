@@ -1,4 +1,5 @@
 # Sistema de Gerenciamento de Estoque
+# Projeto Acadêmico - UNINTER
 
 Sistema web simples para gerenciamento de estoque, desenvolvido em PHP + MySQL, com controle de login, cadastro de produtos, ajustes de estoque (entrada/saída/ajuste), histórico de movimentações e relatórios com opção de impressão.
 
